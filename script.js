@@ -25,12 +25,11 @@ movies = [{
     }
 ]
 
-document.getElementById("getMoviesBtn").addEventListener("click", show);
+document.getElementById("btn1").addEventListener("click", show);
 async function show() {
     try {
         const request = movies;
-        console.log(request);
-        document.getElementById("moviesContainer").innerHTML = `<table><tr>
+        document.getElementById("container").innerHTML = `<table><tr>
         <th>Id</th>
         <th>Nombre</th>
         <th>Duracion</th>
@@ -42,71 +41,49 @@ async function show() {
     }
 }
 
-document.getElementById("NewMovieFrm").addEventListener("submit",PostMovie)
-async function PostMovie(event){
+document.getElementById("form1").addEventListener("submit",Post)
+async function Post(event){
     event.preventDefault();
     const formElement = event.target.elements;
     var id = Object.keys(movies).length+1;
     var data = {
-        name: formElement.NewMovieName.value,
-        duration: formElement.NewMovieDuration.value,
-        director: formElement.NewMovieDirector.value
+        name: formElement.Name.value,
+        duration: formElement.Duration.value,
+        director: formElement.Director.value
     };
     data.id =id;
     movies.push(data)
 }
 
-document.getElementById("EditMovieForm").addEventListener("submit",EditMovie)
-async function EditMovie(event){
+document.getElementById("form2").addEventListener("submit",Edit)
+async function Edit(event){
     event.preventDefault();
     const formElement = event.target.elements;
     var data = {
-        id: formElement.EditMovieId.value,
-        name: formElement.EditMovieName.value,
-        duration: formElement.EditMovieDuration.value,
-        director: formElement.EditMovieDirector.value
-    };    
+        id: parseInt(formElement.Id.value, 10),
+        name: formElement.Name.value,
+        duration: formElement.Duration.value,
+        director: formElement.Director.value
+    };
+    const found = movies.find(element=>{element.id==data.id;
+        if(element.id==data.id)
+        {
+            element.name = data.name;
+            element.duration = data.duration;
+            element.director = data.director;
+        }
+    });
 }
 
-document.getElementById("DeleteMovieForm").addEventListener("submit",DeleteMovie)
-async function DeleteMovie(event){
+document.getElementById("form3").addEventListener("submit",Delete)
+async function Delete(event){
     event.preventDefault();
     const formElement = event.target.elements;
-    //var url = 'https://localhost:44362/api/movie';
-    var data = formElement.DeleteMovieId.value;
-    // fetch(url, {
-    // method: 'DELETE',
-    // body: JSON.stringify(data),
-    // headers:{
-    //     'Content-Type': 'application/json'
-    // }
-    // }).then((res) => {
-    //     return res.json()})
-    // .catch(error => console.error('Error:', error))
-    // .then((response) => {
-    //     console.log('Success:', response)
-    // });
-}
-
-document.getElementById("GetMovieForm").addEventListener("submit",ShowMovie)
-async function ShowMovie(event){
-    event.preventDefault();
-    try{
-        const formElement = event.target.elements;
-        var id = formElement.GetMovieId.value;
-        //var url = 'https://localhost:44362/api/movie'
-        //const request=await fetch(`${url}/${id}`);
-        const data=await request.json()
-        document.getElementById("oneMovie").innerHTML=`<table><tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Duracion</th>
-        <th>Director</th>
-        </tr>
-        ${data.map(e=>`<tr><td>${e.id}</td><td>${e.name}</td><td>${e.duration}</td><td>${e.director}</td></tr>`).join('')}
-        </table>`
-    }catch(error){
-
-    }
-
+    var id = parseInt(formElement.Id.value,10);
+    movies.find(element=>{element.id==id;
+        if(element.id==id){
+            var i = movies.indexOf( element );
+            movies.splice( i, 1 );
+        }
+    })
 }

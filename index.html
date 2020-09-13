@@ -16,57 +16,49 @@
     </header>
 
     <h2>Mostrar Peliculas</h2>
-    <input id="getMoviesBtn" type="button" value="GetMovies">
-    <div id="moviesContainer"></div>
+    <input id="btn1" type="button" value="GetMovies">
+    <div id="container"></div>
 
     <h2>Crear Pelicula</h2>
-    <form id="NewMovieFrm">
-        <label for="NewMovieName">Movie name: </label>
-        <input type="text" name="NewMovieName">
+    <form id="form1">
+        <label for="Name">Movie name: </label>
+        <input type="text" name="Name">
         <br>
-        <label for="NewMovieDuration">Movie Duration: </label>
-        <input type="text" name="NewMovieDuration">
+        <label for="Duration">Movie Duration: </label>
+        <input type="text" name="Duration">
         <br>
-        <label for="NewMovieDirector">Director name: </label>
-        <input type="text" name="NewMovieDirector">
+        <label for="Director">Director name: </label>
+        <input type="text" name="Director">
         <br>
         <input type="submit" value="Crear">
     </form>
 
     <h2>Editar Pelicula</h2>
-    <form id="EditMovieForm">
-        <label for="EditMovieId">Movie id: </label>
-        <input type="text" name="EditMovieId">
+    <form id="form2">
+        <label for="Id">Movie id: </label>
+        <input type="text" name="Id">
         <br>
-        <label for="EditMovieName">Movie name: </label>
-        <input type="text" name="EditMovieName">
+        <label for="Name">Movie name: </label>
+        <input type="text" name="Name">
         <br>
-        <label for="EditMovieDuration">Movie Duration: </label>
-        <input type="text" name="EditMovieDuration">
+        <label for="Duration">Movie Duration: </label>
+        <input type="text" name="Duration">
         <br>
-        <label for="EditMovieDirector">Director name: </label>
-        <input type="text" name="EditMovieDirector">
+        <label for="Director">Director name: </label>
+        <input type="text" name="Director">
         <br>
         <input type="submit" value="Editar">
     </form>
 
     <h2>Eliminar Pelicula</h2>
-    <form id="DeleteMovieForm">
-        <label for="DeleteMovieId">Movie id: </label>
-        <input type="text" name="DeleteMovieId">
+    <form id="form3">
+        <label for="Id">Movie id: </label>
+        <input type="text" name="Id">
         <br>
         <input type="submit" value="Eliminar">
     </form>
 
-    <h2>Mostrar Una Pelicula</h2>
-    <form id="GetMovieForm">
-        <label for="GetMovieId">Movie id: </label>
-        <input type="text" name="GetMovieId">
-        <br>
-        <input type="submit" value="GetMovie">
-
-    </form>
-    <div id="oneMovie"></div>
+    <script src="script.js"></script>
 </body>
 
 </html>
