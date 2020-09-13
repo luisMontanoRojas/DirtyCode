@@ -7,21 +7,21 @@ movie = {
 movies = movie[100];
 movies = [{
         id: 1,
-        name: "hola",
-        duration: "10",
-        director: "yo"
+        name: "El Señor de los Anillos: la Comunidad del Anillo",
+        duration: "3h 48m",
+        director: "Peter Jackson"
     },
     {
         id: 2,
-        name: "hola",
-        duration: "10",
-        director: "yo"
+        name: "harry potter y la piedra filosofal",
+        duration: "2h 39m",
+        director: "Chris Columbus"
     },
     {
         id: 3,
-        name: "hola",
-        duration: "10",
-        director: "yo"
+        name: "Star Wars: episodio IV - una nueva esperanza",
+        duration: "2h 5m",
+        director: "George Lucas"
     }
 ]
 
