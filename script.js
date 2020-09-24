@@ -1,10 +1,15 @@
+//must be a class
 movie = {
     id: Number,
     name: String,
     duration: String,
     director: String
 }
+
+//movies can be managed as array
 movies = movie[100];
+
+//this data must be send by params in Movie constructor
 movies = [{
         id: 1,
         name: "El Señor de los Anillos: la Comunidad del Anillo",
@@ -25,10 +30,12 @@ movies = [{
     }
 ]
 
+//the button id is undescriptible
 document.getElementById("btn1").addEventListener("click", show);
 async function show() {
     try {
         const request = movies;
+
         document.getElementById("container").innerHTML = `<table><tr>
         <th>Id</th>
         <th>Nombre</th>
@@ -41,6 +48,7 @@ async function show() {
     }
 }
 
+//the form id is undescriptible
 document.getElementById("form1").addEventListener("submit",Post)
 async function Post(event){
     event.preventDefault();
@@ -55,6 +63,7 @@ async function Post(event){
     movies.push(data)
 }
 
+//the form id is undescriptible
 document.getElementById("form2").addEventListener("submit",Edit)
 async function Edit(event){
     event.preventDefault();
@@ -75,6 +84,7 @@ async function Edit(event){
     });
 }
 
+//the form id is undescriptible
 document.getElementById("form3").addEventListener("submit",Delete)
 async function Delete(event){
     event.preventDefault();
