@@ -1,21 +1,38 @@
-//import {Movie} from '../DirtyCode/src/Movie'
-Movie = require('../DirtyCode/src/Movie');
-//MovieService = require('../DirtyCode/src/MovieService');
+
+//const Movie = require('./src/modals/Movie')
+import Movie from "./src/modals/Movie"
 
 movies = [];
 
-firstMovie = Movie(1,"El Señor de los Anillos: la Comunidad del Anillo","3h 48m","Peter Jackson")
-secondMovie = Movie(2,"harry potter y la piedra filosofal","2h 39m","Chris Columbus")
-thirdMovie = Movie(3,"Star Wars: episodio IV - una nueva esperanza","2h 5m","George Lucas")
+firstMovie = new Movie(1,"El Señor de los Anillos: la Comunidad del Anillo","3h 48m","Peter Jackson");
+secondMovie = new Movie(2,"harry potter y la piedra filosofal","2h 39m","Chris Columbus");
+thirdMovie = new Movie(3,"Star Wars: episodio IV - una nueva esperanza","2h 5m","George Lucas");
+movies.push(firstMovie);
+movies.push(secondMovie);
+movies.push(thirdMovie);
 
-movies.push(firstMovie)
-movies.push(secondMovie)
-movies.push(thirdMovie)
+function showMoviesTable(){
+    return `<table><tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Duracion</th>
+    <th>Director</th>
+    </tr>
+    ${movies.map(e=>`<tr><td>${e.id}</td><td>${e.name}</td><td>${e.duration}</td><td>${e.director}</td></tr>`).join('')}
+    </table>`
+}
 
-document.getElementById("btn1").addEventListener("click", show());
+document.getElementById("showBtn").addEventListener("click", show());
+async function show(movies) {
+    try {
+        const request = movies;
+        document.getElementById("container").innerHTML = showMoviesTable()
+    }catch(error){
+    }
 
+}
 
-document.getElementById("form1").addEventListener("submit",Post)
+document.getElementById("createMovieForm").addEventListener("submit",Post());
 async function Post(event){
     event.preventDefault();
     const formElement = event.target.elements;
@@ -29,7 +46,7 @@ async function Post(event){
     movies.push(data)
 }
 
-document.getElementById("form2").addEventListener("submit",Edit)
+document.getElementById("editMovieForm").addEventListener("submit",Edit());
 async function Edit(event){
     event.preventDefault();
     const formElement = event.target.elements;
@@ -49,7 +66,7 @@ async function Edit(event){
     });
 }
 
-document.getElementById("form3").addEventListener("submit",Delete)
+document.getElementById("deleteMovieForm").addEventListener("submit",Delete());
 async function Delete(event){
     event.preventDefault();
     const formElement = event.target.elements;
