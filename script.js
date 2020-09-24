@@ -1,45 +1,19 @@
-movie = {
-    id: Number,
-    name: String,
-    duration: String,
-    director: String
-}
-movies = movie[100];
-movies = [{
-        id: 1,
-        name: "El Señor de los Anillos: la Comunidad del Anillo",
-        duration: "3h 48m",
-        director: "Peter Jackson"
-    },
-    {
-        id: 2,
-        name: "harry potter y la piedra filosofal",
-        duration: "2h 39m",
-        director: "Chris Columbus"
-    },
-    {
-        id: 3,
-        name: "Star Wars: episodio IV - una nueva esperanza",
-        duration: "2h 5m",
-        director: "George Lucas"
-    }
-]
+//import {Movie} from '../DirtyCode/src/Movie'
+Movie = require('../DirtyCode/src/Movie');
+//MovieService = require('../DirtyCode/src/MovieService');
 
-document.getElementById("btn1").addEventListener("click", show);
-async function show() {
-    try {
-        const request = movies;
-        document.getElementById("container").innerHTML = `<table><tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Duracion</th>
-        <th>Director</th>
-        </tr>
-        ${movies.map(e=>`<tr><td>${e.id}</td><td>${e.name}</td><td>${e.duration}</td><td>${e.director}</td></tr>`).join('')}
-        </table>`
-    }catch(error){
-    }
-}
+movies = [];
+
+firstMovie = Movie(1,"El Señor de los Anillos: la Comunidad del Anillo","3h 48m","Peter Jackson")
+secondMovie = Movie(2,"harry potter y la piedra filosofal","2h 39m","Chris Columbus")
+thirdMovie = Movie(3,"Star Wars: episodio IV - una nueva esperanza","2h 5m","George Lucas")
+
+movies.push(firstMovie)
+movies.push(secondMovie)
+movies.push(thirdMovie)
+
+document.getElementById("btn1").addEventListener("click", show());
+
 
 document.getElementById("form1").addEventListener("submit",Post)
 async function Post(event){
